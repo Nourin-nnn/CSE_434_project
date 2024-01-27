@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<main aria-labelledby="title">
+    <h2>Contact us</h2>
+    <section class="row">
+        <address class="address">
+            <strong>CSE-434 Sessional Team (1804108, 114, 123)</strong><br>
+            Chittagong University of Engineering and Technology<br>
+            Pahartali, Raozan<br>
+            <h4>Contact Number: 01785124567</h4>
+        </address>
+    </section>
+    <section class="row">
+        <img height="290" src="@Url.Content("~/images/about.png")" />
+    </section>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Information Management System for Educational Institution</h1>
+        <h3 class="lead">An Information Management System (IMS) for an educational institution involves building a comprehensive platform that can handle various aspects of educational administration, students information, teachers information, and more.</h3>
+        
+        <p>
+            <button class="btn btn-primary btn-md">
+                @Html.ActionLink("Back to Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+            </button>
+           
+
+            @*<a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a>*@
+        </p>
+    </section>
+</main>

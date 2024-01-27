@@ -1,0 +1,69 @@
+﻿@model  CSE_434_project.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Teacher</h4>
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TeacherName)</th>
+                <td>@Html.DisplayFor(model => model.TeacherName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Subject)</th>
+                <td>@Html.DisplayFor(model => model.Subject)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.JoiningDate)</th>
+                <td>@Html.DisplayFor(model => model.JoiningDate)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.DOB)</th>
+                <td>@Html.DisplayFor(model => model.DOB)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Mobile)</th>
+                <td>@Html.DisplayFor(model => model.Mobile)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Address)</th>
+                <td>@Html.DisplayFor(model => model.Address)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Picture)</th>
+                <td>@Html.DisplayFor(model => model.Picture)</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TeacherID })
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+<p>
+
+    <div class=" col-md-offset-2 col-md-10 py-2">
+
+        <button class="btn btn-outline-primary text-bg-dark">
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.TeacherID })
+
+        </button>
+        <button class="btn btn-outline-primary text-bg-dark">
+
+            @Html.ActionLink("Back to List", "Index")
+
+        </button>
+    </div>
+</p>

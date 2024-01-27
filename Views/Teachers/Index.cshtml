@@ -1,0 +1,129 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<CSE_434_project.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Teacher Information List
+</h2>
+
+<div class="py-3 d-flex justify-content-between ">
+    <div>
+        <button class="btn btn-outline-primary text-bg-dark">
+
+            @Html.ActionLink("Create New", "Create")
+
+        </button>
+    </div>
+    <div class="w-30 border border-primary rounded-2">
+        <input type="text" id="Search" placeholder="Search Teacher" class="form-control" />
+    </div>
+
+</div>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            TeacherName
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            JoiningDate
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mobile
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Picture
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="Search">
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Picture)*@
+                <img src="@Url.Content(item.Picture)" width="60" height="60" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TeacherID }, new { @class = "btn btn-warning btn-sm" })
+                @Html.ActionLink("Details", "Details", new { id = item.TeacherID }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.TeacherID }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+<center>
+    <div class="d-flex justify-content-between">
+        <div class="border">
+            <p>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+            </p>
+        </div>
+        <div>
+            <h4>
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            </h4>
+        </div>
+    </div>
+
+</center>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_One, text_two) {
+            if (text_One.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchtext = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchtext)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>

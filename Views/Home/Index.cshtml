@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row">
+        <img height="450" src="@Url.Content("~/images/cover.png")" />
+    </section>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Information Management System for Educational Institution</h1>
+        <h3 class="lead">An Information Management System (IMS) for an educational institution involves building a comprehensive platform that can handle various aspects of educational administration, students information, teachers information, and more.</h3>
+        <p>
+            <button class="btn btn-primary btn-md">
+                @Html.ActionLink("Student Info", "Index", "Students", new { area = "" }, new { @class = "nav-link" })
+            </button>
+            <button class="btn btn-primary btn-md">
+                @Html.ActionLink("Teacher Info", "Index", "Teachers", new { area = "" }, new { @class = "nav-link" })
+            </button>
+            <button class="btn btn-primary btn-md">
+                @Html.ActionLink("Parent Info", "Index", "Parents", new { area = "" }, new { @class = "nav-link" })
+            </button>
+            <button class="btn btn-primary btn-md">
+                @Html.ActionLink("Class Info", "Index", "CLASSESSes", new { area = "" }, new { @class = "nav-link" })
+            </button>
+
+            @*<a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a>*@
+        </p>
+    </section>
+</main>
